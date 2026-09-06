@@ -45,18 +45,6 @@ Controller → Service → Repository
     MySQL
 ```
 
-## Project Structure
-
-```text
-banking-management-system/
-├── backend/       # Spring Boot REST API
-├── frontend/      # React application
-├── docs/          # ER diagram and database schema
-├── postman/       # Postman API collection
-├── README.md
-└── .gitignore
-```
-
 ## Setup
 
 ### Prerequisites
@@ -113,10 +101,6 @@ postman/Banking-Management-System.postman_collection.json
 
 The collection includes APIs for authentication, account management, deposits, withdrawals, fund transfers, beneficiaries, transactions, and admin operations.
 
-## Documentation
-
-- `docs/er-diagram.md` — Database ER diagram
-- `docs/schema.sql` — Database schema
 
 ## Testing
 
@@ -127,6 +111,3 @@ cd backend
 mvn test
 ```
 
-## Author
-
-**Ajay Kumar Jaiswal**
