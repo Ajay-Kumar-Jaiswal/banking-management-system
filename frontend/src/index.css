@@ -1,0 +1,434 @@
+/* ============================================================
+   SecureBank - Design tokens
+   Palette inspired by a physical ledger book and banknote engraving:
+   deep ink navy, warm parchment page, and a restrained teal accent
+   used only for primary actions and positive figures.
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --ink-900: #101a26;
+  --ink-700: #1c2c40;
+  --parchment: #f6f4ee;
+  --parchment-line: #e2ddd0;
+  --paper: #ffffff;
+  --teal-700: #0f5c56;
+  --teal-600: #146e66;
+  --gold-600: #8a6d1d;
+  --red-700: #8c2d2d;
+  --text-primary: #17232f;
+  --text-muted: #5b6673;
+  --radius: 3px;
+
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: var(--teal-700);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+  background: var(--ink-900);
+  color: #eef0ee;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.85rem 2rem;
+  border-bottom: 3px solid var(--teal-700);
+}
+
+.navbar-brand {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-right: 1rem;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.1rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.navbar-link {
+  color: #cdd3d6;
+  text-decoration: none;
+  font-size: 0.92rem;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar-link:hover {
+  color: #fff;
+}
+
+.navbar-link.active {
+  color: #fff;
+  border-bottom-color: var(--teal-600);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: #cdd3d6;
+}
+
+/* ---------------- Layout / page ---------------- */
+.app-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--parchment-line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-narrow {
+  max-width: 480px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* ---------------- Stat cards ---------------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: var(--paper);
+  border: 1px solid var(--parchment-line);
+  border-left: 3px solid var(--teal-700);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-900);
+}
+
+/* ---------------- Tables ---------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--parchment-line);
+  padding: 0.55rem 0.6rem;
+}
+
+.table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid var(--parchment-line);
+  font-variant-numeric: tabular-nums;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------------- Forms ---------------- */
+.auth-form,
+.inline-form,
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inline-form,
+.filter-form {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.9rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+input,
+select {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #c9c2ae;
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--text-primary);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--teal-600);
+  outline-offset: 1px;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--teal-700);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--teal-600);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--ink-900);
+  color: var(--ink-900);
+}
+
+.btn-danger {
+  background: transparent;
+  border-color: var(--red-700);
+  color: var(--red-700);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: #47576b;
+  color: #cdd3d6;
+}
+
+.btn-sm {
+  padding: 0.32rem 0.7rem;
+  font-size: 0.82rem;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------------- Badges ---------------- */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.badge-active {
+  background: #e3efe9;
+  color: var(--teal-700);
+}
+
+.badge-suspended {
+  background: #f6ecd8;
+  color: var(--gold-600);
+}
+
+.badge-closed {
+  background: #f3e2e2;
+  color: var(--red-700);
+}
+
+/* ---------------- Alerts ---------------- */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.alert-error {
+  background: #f3e2e2;
+  color: var(--red-700);
+  border: 1px solid #e0b8b8;
+}
+
+.alert-success {
+  background: #e3efe9;
+  color: var(--teal-700);
+  border: 1px solid #b9d8ce;
+}
+
+/* ---------------- Auth pages ---------------- */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink-900);
+  padding: 2rem;
+}
+
+.auth-card {
+  background: var(--parchment);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  font-size: 0.92rem;
+}
+
+.auth-footer {
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ---------------- Misc ---------------- */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.detail-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.detail-value {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+}
+
+.action-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.beneficiary-quickpicks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.chip {
+  background: var(--parchment);
+  border: 1px solid var(--parchment-line);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--teal-600);
+  color: var(--teal-700);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+  .app-content {
+    padding: 1.25rem;
+  }
+}
